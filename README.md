@@ -12,8 +12,15 @@ npm install alipay-webpay-sdk --save
 
 ```javascript
 
+//	ES6
+
 import AliPayClient from "alipay-webpay-sdk";
 
+//	ES5
+
+const AliPayClient = require("alipay-webpay-sdk");
+
+//	实例化
 const alipay = new AliPayClient({见实例化参数列表});
 
 ```

@@ -4,7 +4,9 @@
   "description": "nodejs alipay 'alipay.trade.page.pay' sdk",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test"
+    "test": "node test/test.js",
+    "dist": "npx babel src --out-dir lib",
+    "main": "src/index.js"
   },
   "repository": {
     "type": "git",

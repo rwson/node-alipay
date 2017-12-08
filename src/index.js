@@ -12,7 +12,7 @@ const is = {
     object: (obj) => obj && !Array.isArray(obj) && typeof obj === "object"
 };
 
-const isPublicKey(str) => /^-----BEGIN PUBLIC KEY-----/.test(str) && /-----END PUBLIC KEY-----$/.test(str),
+const isPublicKey = (str) => /^-----BEGIN PUBLIC KEY-----/.test(str) && /-----END PUBLIC KEY-----$/.test(str),
     isPrivateKey = (str) => /^-----BEGIN RSA PRIVATE KEY-----/.test(str) && /-----END RSA PRIVATE KEY-----$/.test(str);
 
 /**
@@ -38,10 +38,10 @@ class Alipay {
         signType = "RSA2",
         charset = "utf-8"
     }) {
-        if (!isPrivateKey(privatekey)) {
-            privatekey = `-----BEGIN RSA PRIVATE KEY-----\n${privatekey}\n-----END RSA PRIVATE KEY-----`;
+        if (!isPrivateKey(privateKey)) {
+            privateKey = `-----BEGIN RSA PRIVATE KEY-----\n${privatekey}\n-----END RSA PRIVATE KEY-----`;
         }
-        if (isPublicKey(publicKey)) {
+        if (!isPublicKey(publicKey)) {
             publicKey = `-----BEGIN PUBLIC KEY-----\n${publicKey}\n-----END PUBLIC KEY-----`;
         }
         this.appId = appId;
@@ -127,13 +127,10 @@ class Alipay {
         delete bodyCloned.sign;
         delete bodyCloned.sign_type;
 
-        console.log(bodyCloned);
-
         try {
-            console.log(publicKey);
-            return verify.update(sign).verify(publicKey, "base64");
+            verify.update(signed.join("&"));
+            return verify.verify(publicKey, body.sign, "base64");
         } catch (e) {
-            console.log(e);
             return false;
         }
     }
