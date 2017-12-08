@@ -1,0 +1,36 @@
+{
+  "name": "alipay-webpay-sdk",
+  "version": "1.0.0",
+  "description": "nodejs alipay 'alipay.trade.page.pay' sdk",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rwson/node-alipay.git"
+  },
+  "keywords": [
+    "alipay",
+    "node"
+  ],
+  "devDependencies": {
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
+    "babel-preset-env": "^1.5.2",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-es2017": "^6.24.1"
+  },
+  "author": "rwson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rwson/node-alipay/issues"
+  },
+  "homepage": "https://github.com/rwson/node-alipay#readme",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "moment": "^2.19.3",
+    "qs": "^6.5.1",
+    "ramda": "^0.25.0"
+  }
+}
